@@ -9,6 +9,7 @@ from langchain_openai import ChatOpenAI
 from pydantic import SecretStr
 from langchain_core.tools import tool
 from pydantic import BaseModel, Field
+from langchain_community.agent_toolkits import FileManagementToolkit
 
 from langchain_core.prompts import ChatPromptTemplate, ChatMessagePromptTemplate, FewShotPromptTemplate, PromptTemplate
 
@@ -56,3 +57,5 @@ def create_calc_tools():
 
 
 calc_tools = create_calc_tools()
+file_toolkit = FileManagementToolkit(root_dir=r"D:\code_project\ai_agent_with_langchain\.temp")
+file_tools = file_toolkit.get_tools()
