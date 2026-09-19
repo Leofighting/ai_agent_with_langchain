@@ -2,7 +2,7 @@
 """
 @Time : 2026/9/18 11:42
 @Author: janic
-@File: bailian_tool.py
+@File: bailian_prompt.py
 """
 from sys import prefix
 

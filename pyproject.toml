@@ -6,8 +6,9 @@ readme = "README.md"
 authors = [
     { name = "janic", email = "469342045@qq.com" }
 ]
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 dependencies = [
+    "langchain>=1.4.1",
     "langchain-ollama>=1.1.0",
     "langchain-openai>=1.6.2",
     "openai>=3.14.1",
