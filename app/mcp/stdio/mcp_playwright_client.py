@@ -42,7 +42,7 @@ async def mcp_playwright_client():
         "-y",
         "@modelcontextprotocol/server-github"
       ],
-        env={"GITHUB_PERSONAL_ACCESS_TOKEN": "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"}
+        env={"GITHUB_PERSONAL_ACCESS_TOKEN": ""}
     )
 
     async with stdio_client(server_params) as (read, write):
