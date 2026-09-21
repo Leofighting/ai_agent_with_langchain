@@ -2,7 +2,7 @@
 """
 @Time : 2026/9/20 11:16
 @Author: janic
-@File: multi_chat.py
+@File: model_chat.py
 """
 import uuid
 
@@ -25,7 +25,7 @@ def get_session_history(session_id: str):
     return FileChatMessageHistory(f"{session_id}.json")
 
 
-file_toolkit = FileManagementToolkit(root_dir=r"D:\code_project\ai_agent_with_langchain\.temp")
+file_toolkit = FileManagementToolkit(root_dir=r"/.temp")
 file_tools = file_toolkit.get_tools()
 
 # agent = create_agent(model=llm_qwen, tools=file_tools)
