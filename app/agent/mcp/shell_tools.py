@@ -39,4 +39,4 @@ def run_shell_command_by_popen(commands):
 if __name__ == '__main__':
     # ret = run_shell_command("dir")
     # print(ret)
-    mcp.run()
+    mcp.run(transport="stdio")
