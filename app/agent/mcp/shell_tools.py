@@ -20,7 +20,7 @@ def run_shell_command(command: Annotated[str, Field(description="shell command w
         shell_command = shlex.split(command)
         if "rm" in shell_command:
             raise Exception("不允许使用rm")
-        res = subprocess.run(command, shell=True, capture_output=True, text=True)
+        res = subprocess.run(shell_command, shell=True, capture_output=True, text=True)
         if res.returncode != 0:
             return res.stderr
         return res.stdout

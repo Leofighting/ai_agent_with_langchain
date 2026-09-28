@@ -15,6 +15,7 @@ from langgraph.checkpoint.memory import MemorySaver
 
 from app.agent.model.qwen import llm_qwen
 from app.agent.rag.rag import create_client, retrieve_index, query_rag_from_bailian
+from app.agent.tools.browser_tools import get_stdio_browser_tools
 from app.agent.tools.file_saver import FileSaver
 from app.agent.tools.file_tools import file_tools
 from app.agent.tools.powershell_tools import get_stdio_powershell_tools
@@ -40,10 +41,12 @@ async def run_agent():
     memory = FileSaver()
     # memory = MemorySaver()
 
-    shell_tools = await get_stdio_shell_tools()
-    powershell_tools = await get_stdio_powershell_tools()
-    rag_tools = await get_stdio_rag_tools()
-    tools = file_tools + shell_tools + powershell_tools + rag_tools
+    # shell_tools = await get_stdio_shell_tools()
+    # powershell_tools = await get_stdio_powershell_tools()
+    # rag_tools = await get_stdio_rag_tools()
+    browser_tools = await get_stdio_browser_tools()
+    # tools = file_tools + shell_tools + powershell_tools + browser_tools
+    tools = file_tools + browser_tools
 
     prompt = PromptTemplate.from_template(
         template="""
@@ -78,12 +81,11 @@ async def run_agent():
         # workspace_id = ""
         # index_id = ""
         # bailian_client = create_client()
-        rag = query_rag_from_bailian(user_input)
+        # rag = query_rag_from_bailian(user_input)
         user_prompt = f"""
         # 要求
         执行任务之前，先使用 query_rag 工具查询知识库，根据知识库中的知识执行任务
             # 相关知识
-            {rag}
             
             # 用户问题
             {user_input}
